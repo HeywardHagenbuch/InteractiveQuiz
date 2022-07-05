@@ -2,24 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Coding Quiz</title>
-    <link rel="stylesheet" href="style.css"/>
+    <link href="styles.css" rel="stylesheet">
+    <script defer src = "scripts.js"></script>
+    <title>Quiz</title>
 </head>
 <body>
-<h1> Coding Quiz Challenge</h1>
+<header>
 
-<div class="card">
-    <div class="flex-container">
-        <h2>Try to answer the following coding questions within the time limit! </br></br>
-            Keep in mind that 10 seconds will be deducted from the timer for all incorrect answers.</h2>
+</header>
+<div class = "container">
+    <div id = "question-container" class = "hide">
+        <div id = "question">Question</div>
+        <div id = "answer-buttons" class="btn-grid">
+            <button class = "btn correct">Answer 1</button>
+            <button class = "btn wrong">Answer 2</button>
+            <button class = "btn">Answer 3</button>
+            <button class = "btn">Answer 4</button>
+        </div>
     </div>
-</div>
-<div class = "btn">
-    <a href="question1.html">
-        <button class="button">
-            Begin The Quiz
-        </button>
-    </a>
+
+    <div class="container1">
+        <div id="results-container" class = "hide">
+            <h1 id = "score"></h1><h1>Is Your Final Score</h1>
+            <button id ="submit-btn" class ="submit-btn btn">Submit</button>
+            <button id ="back-btn" class ="back-btn btn ">Go Back</button>
+
+
+        </div>
+    </div>
+
+    <div class = "controls">
+        <button id ="start-btn" class ="start-btn btn">Start</button>
+        <button id ="next-btn" class ="next-btn btn hide">Next</button>
+    </div>
+    <div id = "final-results" class = "hide">
+        <h1>Your final score is </h1>
+
+    </div>
 </div>
 </body>
 </html>

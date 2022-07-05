@@ -36,6 +36,14 @@ body.wrong {
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 0 10px 3px;
+    margin-bottom: 10px;
+}
+
+.container1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
 }
 
 .btn-grid{
@@ -68,7 +76,7 @@ body.wrong {
     --hue: var(--hue-wrong);
 }
 
-.start-btn, .next-btn{
+.start-btn, .next-btn, back-btn, submit-btn{
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px 20px;

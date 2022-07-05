@@ -2,6 +2,7 @@ const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
 
 const questionContainerElement = document.getElementById('question-container')
+const resultsContainerElement = document.getElementById('results-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 let shuffledQuestions, currentQuestionIndex
@@ -20,6 +21,7 @@ function startQuiz(){
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0;
     questionContainerElement.classList.remove('hide')
+
     setNextQuesiton()
 }
 
@@ -64,9 +66,11 @@ function selectAnswer(e){
     }
     else{
         alert('your score is ' + score)
-        location.replace("allDone.html")
+        questionContainerElement.classList.add('hide')
+        resultsContainerElement.classList.remove('hide')
+        document.getElementById("score").innerHTML = score
     }
-    nextButton.classList.remove('hide')
+
 }
 
 
