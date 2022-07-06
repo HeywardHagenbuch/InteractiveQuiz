@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <link href="styles.css" rel="stylesheet">
@@ -7,9 +7,7 @@
     <title>Quiz</title>
 </head>
 <body>
-<header>
 
-</header>
 <div class = "container">
     <div id = "question-container" class = "hide">
         <div id = "question">Question</div>
@@ -24,10 +22,8 @@
     <div class="container1">
         <div id="results-container" class = "hide">
             <h1 id = "score"></h1><h1>Is Your Final Score</h1>
-            <button id ="submit-btn" class ="submit-btn btn">Submit</button>
-            <button id ="back-btn" class ="back-btn btn ">Go Back</button>
-
-
+            <button id ="submit-btn" class ="submit-btn btn" onclick="scoreForm()">Submit</button>
+            <button id ="back-btn" class ="back-btn btn " onclick="startQuiz()">Start Over</button>
         </div>
     </div>
 
@@ -35,10 +31,13 @@
         <button id ="start-btn" class ="start-btn btn">Start</button>
         <button id ="next-btn" class ="next-btn btn hide">Next</button>
     </div>
-    <div id = "final-results" class = "hide">
-        <h1>Your final score is </h1>
 
+    <div class = "timer">
+        <div id = "timer-container" class = "hide">
+            <h3>TIMER: </h3>
+        </div>
     </div>
+
 </div>
 </body>
 </html>

@@ -1,31 +1,35 @@
 const startButton = document.getElementById('start-btn')
 const nextButton = document.getElementById('next-btn')
-
+const timerContainerElement = document.getElementById('timer-container')
 const questionContainerElement = document.getElementById('question-container')
 const resultsContainerElement = document.getElementById('results-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 let shuffledQuestions, currentQuestionIndex
 let score = 0;
+let time = 50
 
 startButton.addEventListener('click', startQuiz)
 nextButton.addEventListener('click', () => {
     currentQuestionIndex++
-    setNextQuesiton()
+    setNextQuestion()
 })
 
 
 function startQuiz(){
     console.log('started')
     startButton.classList.add('hide')
+    resultsContainerElement.classList.add('hide')
+    timerContainerElement.classList.remove('hide')
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0;
+    score = 0;
     questionContainerElement.classList.remove('hide')
 
-    setNextQuesiton()
+    setNextQuestion()
 }
 
-function setNextQuesiton(){
+function setNextQuestion(){
     resetState()
     showQuestion(shuffledQuestions[currentQuestionIndex])
 }
@@ -65,14 +69,23 @@ function selectAnswer(e){
         nextButton.classList.remove('hide')
     }
     else{
-        alert('your score is ' + score)
-        questionContainerElement.classList.add('hide')
-        resultsContainerElement.classList.remove('hide')
-        document.getElementById("score").innerHTML = score
+        endQuiz();
     }
-
 }
 
+function endQuiz() {
+    alert('your score is ' + score)
+    questionContainerElement.classList.add('hide')
+    resultsContainerElement.classList.remove('hide')
+    timerContainerElement.classList.add('hide')
+    document.getElementById("score").innerHTML = score
+    
+}
+
+function scoreForm(){
+    let initials = window.prompt("Enter your initials")
+    alert (initials + ' scored ' + score)
+}
 
 function setStatusClass(element, correct){
     clearStatusClass(element)
@@ -135,3 +148,4 @@ const questions = [
         ]
     }
 ]
+
