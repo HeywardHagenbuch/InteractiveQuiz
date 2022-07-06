@@ -46,6 +46,13 @@ body.wrong {
     margin: 10px;
 }
 
+.scoreContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
 .btn-grid{
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -76,7 +83,7 @@ body.wrong {
     --hue: var(--hue-wrong);
 }
 
-.start-btn, .next-btn, back-btn, submit-btn{
+.start-btn, .next-btn, back-btn, submit-btn, high-btn{
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px 20px;

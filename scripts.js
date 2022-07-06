@@ -3,11 +3,13 @@ const nextButton = document.getElementById('next-btn')
 const timerContainerElement = document.getElementById('timer-container')
 const questionContainerElement = document.getElementById('question-container')
 const resultsContainerElement = document.getElementById('results-container')
+const scoreContainerElement = document.getElementById('score-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 let shuffledQuestions, currentQuestionIndex
+let timer = document.getElementById('countdown');
 let score = 0;
-let time = 50
+let timeLeft = 30;
 
 startButton.addEventListener('click', startQuiz)
 nextButton.addEventListener('click', () => {
@@ -25,7 +27,8 @@ function startQuiz(){
     currentQuestionIndex = 0;
     score = 0;
     questionContainerElement.classList.remove('hide')
-
+    timeLeft = 30;
+    countdown()
     setNextQuestion()
 }
 
@@ -61,6 +64,9 @@ function selectAnswer(e){
         score = score + 20
         console.log(score)
     }
+    else{
+        timeLeft = timeLeft - 3; //takes off 3 sec
+    }
     setStatusClass(document.body, correct)
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
@@ -79,13 +85,26 @@ function endQuiz() {
     resultsContainerElement.classList.remove('hide')
     timerContainerElement.classList.add('hide')
     document.getElementById("score").innerHTML = score
-    
+
 }
 
 function scoreForm(){
     let initials = window.prompt("Enter your initials")
-    alert (initials + ' scored ' + score)
+    alert (name + ' scored ' + score)
+    let player = {
+        initials: initials.value.trim(),
+        score: score
+    };
+    localStorage.setItem('player', JSON.stringify(player));
+    scoreContainerElement.classList.remove('hide')
+
 }
+
+function showHighScores(){
+    localStorage.getItem("name")
+    localStorage.getItem("score")
+}
+
 
 function setStatusClass(element, correct){
     clearStatusClass(element)
@@ -96,6 +115,22 @@ function setStatusClass(element, correct){
         element.classList.add('wrong')
     }
 }
+
+function countdown() {
+
+    var timerId = setInterval(function () {
+        if (timeLeft > 0) {
+            timer.textContent = 'Timer: ' + timeLeft;
+        } else {
+            timer.textContent = ''
+            clearInterval(timerId)
+            endQuiz()
+        }
+        timeLeft = timeLeft - 1;
+    }, 1000);
+}
+
+
 
 function clearStatusClass(element){
     element.classList.remove('correct')
