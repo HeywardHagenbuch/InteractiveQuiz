@@ -89,15 +89,8 @@ function endQuiz() {
 }
 
 function scoreForm(){
-    let initials = window.prompt("Enter your initials")
     alert (name + ' scored ' + score)
-    let player = {
-        initials: initials.value.trim(),
-        score: score
-    };
-    localStorage.setItem('player', JSON.stringify(player));
-    scoreContainerElement.classList.remove('hide')
-
+    window.location.href = "highScores.html";
 }
 
 function showHighScores(){
@@ -183,4 +176,5 @@ const questions = [
         ]
     }
 ]
+
 
