@@ -26,6 +26,6 @@ var handleFormSubmit = function(event) {
 formEl.on('submit', handleFormSubmit);
 
 function goBack(){
-    alert ("Nice job, Do better next time")
+
     window.location.href = "index.html";
 }

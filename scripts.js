@@ -80,7 +80,6 @@ function selectAnswer(e){
 }
 
 function endQuiz() {
-    alert('your score is ' + score)
     questionContainerElement.classList.add('hide')
     resultsContainerElement.classList.remove('hide')
     timerContainerElement.classList.add('hide')
@@ -89,7 +88,6 @@ function endQuiz() {
 }
 
 function scoreForm(){
-    alert (name + ' scored ' + score)
     window.location.href = "highScores.html";
 }
 
